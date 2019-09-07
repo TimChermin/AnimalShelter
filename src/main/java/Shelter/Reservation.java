@@ -11,6 +11,7 @@ class Reservation {
     private String reservatorName;
     private java.time.LocalDateTime reservationDate;
     private Animal animal;
+    private int dogCount;
 
     Animal getAnimal(){
         return animal;
@@ -22,22 +23,12 @@ class Reservation {
     java.time.LocalDateTime getReservationDate()
     { return reservationDate; }
 
-    Reservation(String animalName, String animalGender, String animalType, String badHabit, String reservatorName, LocalDateTime reservationDate){
+    Reservation(Animal animal, String reservatorName, LocalDateTime reservationDate){
         this.reservatorName = reservatorName;
         this.reservationDate = reservationDate;
-        addAnimalToReservation(animalName, animalType, animalGender, badHabit);
+        this.animal = animal;
         //this.animalType = AnimalType.valueOf(animalType);
     }
 
-    private void addAnimalToReservation(String animalName, String animalType, String animalGender, String badHabit){
-        switch(animalType) {
-            case "cat":
-                animal = new Cat(animalName, animalGender, badHabit);
-                break;
 
-            case "dog":
-                animal = new Dog(animalName, animalGender);
-                break;
-        }
-    }
 }

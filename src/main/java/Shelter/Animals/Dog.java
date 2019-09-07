@@ -9,9 +9,12 @@ import java.text.DecimalFormat;
 public class Dog implements Animal {
     String name;
     Gender gender;
-    public Dog(String name, String gender){
+    Double productPrice;
+    public Dog(String name, String gender, int dogCount){
         this.name = name;
         this.gender = Gender.valueOf(gender);
+        productPrice = 500.0;
+        calculatePrice(dogCount);
     }
 
     public String getName() {
@@ -27,26 +30,24 @@ public class Dog implements Animal {
     }
 
     public String toString() {
-        return name + " " + gender + " dog";
+        return name + " " + gender + " dog " + productPrice;
     }
+
 
     @Override
-    public String getProductName() {
-        return null;
+    public Double getProductPrice() {
+        return productPrice;
     }
 
-    @Override
-    public void setProductName(String productName) {
-
+    private void calculatePrice(int dogCount){
+        for(int i=0; i<dogCount; i++){
+            productPrice -= 50;
+        }
+        if (productPrice < 50){
+            productPrice = 50.0;
+        }
+        //first dog in = €500 every dog after = min €50
+        //never cheaper than €50 
     }
 
-    @Override
-    public DecimalFormat getProductPrice() {
-        return null;
-    }
-
-    @Override
-    public void setProductPrice(DecimalFormat productPrice) {
-
-    }
 }

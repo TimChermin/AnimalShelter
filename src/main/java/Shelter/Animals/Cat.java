@@ -10,10 +10,12 @@ public class Cat implements Animal {
     private String name;
     private Gender gender;
     private String badHabit;
+    private double productPrice;
     public Cat(String name, String gender, String badHabit){
         this.name = name;
         this.gender = Gender.valueOf(gender);
         this.badHabit = badHabit;
+        calculatePrice(badHabit);
     }
 
     public String getName() {
@@ -29,26 +31,21 @@ public class Cat implements Animal {
     }
 
     public String toString() {
-        return name + " " + gender + " cat " + badHabit;
+        return name + " " + gender + " cat " + badHabit + " €" + productPrice;
     }
 
+
     @Override
-    public String getProductName() {
-        return null;
+    public Double getProductPrice() {
+        return productPrice;
     }
 
-    @Override
-    public void setProductName(String productName) {
-
-    }
-
-    @Override
-    public DecimalFormat getProductPrice() {
-        return null;
-    }
-
-    @Override
-    public void setProductPrice(DecimalFormat productPrice) {
-
+    private void calculatePrice(String badHabit){
+        double length = badHabit.length();
+        productPrice = (350 - (20 * length));
+        if (productPrice < 35){
+            productPrice = 35;
+        }
+        //maxprice cat €350 for every char in badhabbit min €20 never cheaper than €35
     }
 }
