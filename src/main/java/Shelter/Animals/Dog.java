@@ -4,6 +4,8 @@ import Shelter.Enums.Gender;
 import Shelter.Interfaces.Animal;
 import Shelter.Shelter;
 
+import java.text.DecimalFormat;
+
 public class Dog implements Animal {
     String name;
     Gender gender;
@@ -26,5 +28,25 @@ public class Dog implements Animal {
 
     public String toString() {
         return name + " " + gender + " dog";
+    }
+
+    @Override
+    public String getProductName() {
+        return null;
+    }
+
+    @Override
+    public void setProductName(String productName) {
+
+    }
+
+    @Override
+    public DecimalFormat getProductPrice() {
+        return null;
+    }
+
+    @Override
+    public void setProductPrice(DecimalFormat productPrice) {
+
     }
 }

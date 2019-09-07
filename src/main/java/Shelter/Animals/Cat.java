@@ -4,10 +4,12 @@ import Shelter.Enums.Gender;
 import Shelter.Interfaces.Animal;
 import Shelter.Shelter;
 
+import java.text.DecimalFormat;
+
 public class Cat implements Animal {
-    String name;
-    Gender gender;
-    String badHabit;
+    private String name;
+    private Gender gender;
+    private String badHabit;
     public Cat(String name, String gender, String badHabit){
         this.name = name;
         this.gender = Gender.valueOf(gender);
@@ -26,12 +28,27 @@ public class Cat implements Animal {
         return 0;
     }
 
-    public String getBadHabbit(){
-        return badHabit;
-    }
-
     public String toString() {
         return name + " " + gender + " cat " + badHabit;
     }
 
+    @Override
+    public String getProductName() {
+        return null;
+    }
+
+    @Override
+    public void setProductName(String productName) {
+
+    }
+
+    @Override
+    public DecimalFormat getProductPrice() {
+        return null;
+    }
+
+    @Override
+    public void setProductPrice(DecimalFormat productPrice) {
+
+    }
 }
