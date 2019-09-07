@@ -19,12 +19,12 @@ public class Form {
     }
 
     private Shelter shelter = new Shelter();
-    Scanner kbd = new Scanner (System.in);
-    String decision;
-    boolean continueReservating = true;
+    private Scanner kbd = new Scanner (System.in);
+    private String decision;
+    private boolean continueReservating = true;
     Gender animalGender;
 
-    public void run (String[] args) throws Exception
+    private void run(String[] args) throws Exception
     {
         while(continueReservating)
         {
@@ -32,7 +32,7 @@ public class Form {
         }
     }
 
-    public void askQuestions(){
+    private void askQuestions(){
         System.out.println("please enter your name");
         String nameReservator = kbd.nextLine();
 
@@ -55,7 +55,7 @@ public class Form {
         continueReservating = continueReservations(decision);
     }
 
-    public String catOrDog(String animalType){
+    private String catOrDog(String animalType){
         if(animalType.equals("cat")){
             System.out.println("Please enter the badHabit of the animal you are making a reservation for");
             return kbd.nextLine();
@@ -66,7 +66,7 @@ public class Form {
     private void getReservationList()
     {
         for(Reservation reservation : this.shelter.getReservations()) {
-            System.out.println(reservation.getAnimal().toString() + " Reservation made by: " + reservation.getReservatorName()); //+ " " + reservation.getReservationDate().toString());
+            System.out.println(reservation.getAnimal().toString() + " Reservation made by: " + reservation.getReservatorName() + " " + reservation.getReservationDate().toString());
         }
     }
 

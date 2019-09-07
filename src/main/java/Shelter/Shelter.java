@@ -8,11 +8,11 @@ public class Shelter {
 
     private List<Reservation> reservations = new ArrayList<Reservation>();
 
-    public List<Reservation> getReservations(){
+    List<Reservation> getReservations(){
         return reservations;
     }
 
-    public void addReservation(String animalName, String animalGender, String animalType, String badHabit, String reservatorName){
+    void addReservation(String animalName, String animalGender, String animalType, String badHabit, String reservatorName){
         reservations.add(new Reservation(animalName, animalType, animalGender, badHabit, reservatorName, LocalDateTime.now()));
     }
 

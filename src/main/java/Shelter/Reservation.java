@@ -7,28 +7,29 @@ import Shelter.Interfaces.Animal;
 
 import java.time.LocalDateTime;
 
-public class Reservation {
+class Reservation {
     private String reservatorName;
-    private java.util.Date reservationDate;
+    private java.time.LocalDateTime reservationDate;
     private Animal animal;
 
-    public Animal getAnimal(){
+    Animal getAnimal(){
         return animal;
     }
 
-    public String getReservatorName()
+    String getReservatorName()
     { return reservatorName; }
 
-    public java.util.Date getReservationDate()
+    java.time.LocalDateTime getReservationDate()
     { return reservationDate; }
 
-    public Reservation (String animalName, String animalGender, String animalType, String badHabit, String reservatorName, LocalDateTime reservationDate ){
+    Reservation(String animalName, String animalGender, String animalType, String badHabit, String reservatorName, LocalDateTime reservationDate){
         this.reservatorName = reservatorName;
+        this.reservationDate = reservationDate;
         addAnimalToReservation(animalName, animalType, animalGender, badHabit);
         //this.animalType = AnimalType.valueOf(animalType);
     }
 
-    public void addAnimalToReservation(String animalName, String animalType, String animalGender, String badHabit){
+    private void addAnimalToReservation(String animalName, String animalType, String animalGender, String badHabit){
         switch(animalType) {
             case "cat":
                 animal = new Cat(animalName, animalGender, badHabit);
