@@ -40,7 +40,7 @@ public class Dog implements Animal {
     }
 
     private void calculatePrice(int dogCount){
-        for(int i=0; i<dogCount; i++){
+        for(int i=1; i<dogCount; i++){
             productPrice -= 50;
         }
         if (productPrice < 50){
